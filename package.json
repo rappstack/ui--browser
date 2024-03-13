@@ -1,0 +1,44 @@
+{
+	"name": "@rappstack/ui--browser",
+	"type": "module",
+	"version": "0.0.0",
+	"types": "./index.ts",
+	"description": "UI library targeting the browser",
+	"keywords": [
+		"rappstack",
+		"reactive",
+		"full-stack",
+		"ui",
+		"browser"
+	],
+	"homepage": "https://github.com/rappstack/ui--browser",
+	"bugs": {
+		"url": "https://github.com/rappstack/ui--browser/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/rappstack/ui--browser.git"
+	},
+	"license": "Apache-2.0",
+	"author": "Brian Takita",
+	"exports": {
+		".": "./index.ts",
+		"./transition": "./transition/index.ts",
+		"./package.json": "./package.json"
+	},
+	"files": [
+		"*.d.ts",
+		"*.js",
+		"*.json",
+		"transition"
+	],
+	"dependencies": {
+		"ctx-core": "^6.5.5"
+	},
+	"devDependencies": {
+		"bun-types": "latest"
+	},
+	"peerDependencies": {
+		"typescript": "^5.4.2"
+	}
+}
