@@ -64,6 +64,6 @@ export function hover__enter$__new(el:HTMLElement) {
 		el.addEventListener('mouseleave', ()=>{
 			$._ = false
 		})
-		return false
+		return el.parentElement?.querySelector(':hover') === el
 	}))
 }
