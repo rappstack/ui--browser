@@ -23,6 +23,7 @@
 	"author": "Brian Takita",
 	"exports": {
 		".": "./index.ts",
+		"./el": "./el/index.ts",
 		"./transition": "./transition/index.ts",
 		"./package.json": "./package.json"
 	},
@@ -30,6 +31,7 @@
 		"*.d.ts",
 		"*.js",
 		"*.json",
+		"el",
 		"transition"
 	],
 	"dependencies": {
