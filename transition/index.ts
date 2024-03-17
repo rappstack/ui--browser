@@ -1,6 +1,10 @@
 import { calling, memo_, type memo_T, sig_ } from 'ctx-core/rmemo'
 import { el_setAttribute__set_memo } from '../el/index.js'
-export function transition_pair_(enter$__new:(el:HTMLElement)=>memo_T<boolean>) {
+export type transition_pair_T = [
+	enter_el__add:(el:HTMLElement)=>void,
+	transition_el__add:(el:HTMLElement)=>void,
+]
+export function transition_pair_(enter$__new:(el:HTMLElement)=>memo_T<boolean>):transition_pair_T {
 	const enter$_a1$ = sig_<memo_T<boolean>[]>([])
 	const transition$_a1$ = sig_<memo_T<boolean>[]>([])
 	return [
