@@ -1,23 +1,23 @@
 import { calling, memo_, type memo_T, sig_ } from 'ctx-core/rmemo'
 import { el_setAttribute__set_memo } from '../el/index.js'
 export type transition_pair_T = [
-	enter_el__add:(el:HTMLElement)=>void,
-	transition_el__add:(el:HTMLElement)=>void,
+	enter_el__add:(el:Element)=>void,
+	transition_el__add:(el:Element)=>void,
 ]
-export function transition_pair_(enter$__new:(el:HTMLElement)=>memo_T<boolean>):transition_pair_T {
+export function transition_pair_(enter$__new:(el:Element)=>memo_T<boolean>):transition_pair_T {
 	const enter$_a1$ = sig_<memo_T<boolean>[]>([])
 	const transition$_a1$ = sig_<memo_T<boolean>[]>([])
 	return [
 		enter_el__add,
 		transition_el__add,
 	]
-	function enter_el__add(el:HTMLElement) {
+	function enter_el__add(el:Element) {
 		enter$_a1$._ = [...enter$_a1$(), enter$__new(el)]
 	}
-	function transition_el__add(el:HTMLElement) {
+	function transition_el__add(el:Element) {
 		transition$_a1$._ = [...transition$_a1$(), transition$__new(el)]
 	}
-	function transition$__new(el:HTMLElement) {
+	function transition$__new(el:Element) {
 		return calling(memo_<boolean>($=>{
 				el.addEventListener('transitionstart', ()=>{
 					$._ = true
@@ -65,10 +65,10 @@ export function transition_pair_(enter$__new:(el:HTMLElement)=>memo_T<boolean>):
 		)
 	}
 }
-export function aria_expanded__transition_pair_(enter$__new:(el:HTMLElement)=>memo_T<boolean>) {
+export function aria_expanded__transition_pair_(enter$__new:(el:Element)=>memo_T<boolean>) {
 	return transition_pair_(el=>el_setAttribute__set_memo(el, 'aria-expanded', enter$__new(el)))
 }
-export function hover__enter$__new(el:HTMLElement) {
+export function hover__enter$__new(el:Element) {
 	return calling(memo_<boolean>($=>{
 		el.addEventListener('mouseenter', ()=>{
 			$._ = true})
@@ -78,7 +78,7 @@ export function hover__enter$__new(el:HTMLElement) {
 		return el.parentElement?.querySelector(':hover') === el
 	}))
 }
-export function click__enter$__new(el:HTMLElement) {
+export function click__enter$__new(el:Element) {
 	return calling(memo_<boolean>($=>{
 		el.addEventListener('click', ()=>{
 			$._ = !$()
