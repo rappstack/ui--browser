@@ -51,7 +51,7 @@ export function seq_034521_class_tup_(entry$__new:(el:Element)=>memo_T<boolean>)
 		seq_enter$__add(entry$__new(el))
 	}
 	function seq_enter$__add(_enter$:memo_T<boolean>) {
-		enter$_a1$._ = [...enter$_a1$(), _enter$]
+		enter$_a1$.set([...enter$_a1$(), _enter$])
 	}
 	function seq_el__add(el:Element) {
 		const seq_eq$ = sig_<seq_034521_val_T>(seq_enter$() ? 5 : 0)
@@ -59,10 +59,10 @@ export function seq_034521_class_tup_(entry$__new:(el:Element)=>memo_T<boolean>)
 		return seq_eq$
 	}
 	function seq$__add(_transition$:memo_T<boolean>) {
-		transition$_a1$._ = [...transition$_a1$(), _transition$]
+		transition$_a1$.set([...transition$_a1$(), _transition$])
 	}
 	function seq$__new(_el:Element, seq_eq$:sig_T<seq_034521_val_T>) {
-		const el = <Element&{ seq_eq$_effect$:memo_T<unknown> }>_el
+		const el = <Element&{ seq_eq$_effect$:memo_T<void> }>_el
 		el.seq_eq$_effect$ = calling(memo_(()=>{
 			const seq_eq = seq_eq$()
 			el.classList.add('seq-034521-on')
@@ -74,43 +74,45 @@ export function seq_034521_class_tup_(entry$__new:(el:Element)=>memo_T<boolean>)
 		}))
 		return calling(memo_<boolean>($=>{
 				el.addEventListener('transitionstart', ()=>{
-					$._ = true
+					$.set(true)
 				})
 				el.addEventListener('transitioncancel', ()=>{
-					$._ = false
+					$.set(false)
 				})
 				el.addEventListener('transitionend', ()=>{
-					$._ = false
+					$.set(false)
 					if (seq_eq$() === 4) {
-						seq_eq$._ = 5
+						seq_eq$.set(5)
 					} else if (seq_eq$() === 1) {
-						seq_eq$._ = 0
+						seq_eq$.set(0)
 					}
 				})
 				return false
-			}).add(()=>{
-				return memo_<boolean>($=>{
-					const enter = seq_enter$()
-					if ($.val != null) {
-						if (enter) {
-							if ($.val !== enter) {
-								seq_eq$._ = 3
-								setTimeout(()=>{
-									seq_eq$._ = 4
-								}, 30)
-							}
-						} else {
-							if ($.val !== enter) {
-								seq_eq$._ = 2
-								setTimeout(()=>{
-									seq_eq$._ = 1
-								}, 30)
+			}, [
+				()=>{
+					return memo_<boolean>($=>{
+						const enter = seq_enter$()
+						if ($.val != null) {
+							if (enter) {
+								if ($.val !== enter) {
+									seq_eq$.set(3)
+									setTimeout(()=>{
+										seq_eq$.set(4)
+									}, 30)
+								}
+							} else {
+								if ($.val !== enter) {
+									seq_eq$.set(2)
+									setTimeout(()=>{
+										seq_eq$.set(1)
+									}, 30)
+								}
 							}
 						}
-					}
-					return enter
-				})
-			})
+						return enter
+					})
+				}
+			])
 		)
 	}
 }
@@ -120,10 +122,10 @@ export function aria_expanded__enter$__new_(enter$__new:(el:Element)=>memo_T<boo
 export function hover__enter$__new(el:Element) {
 	return calling(memo_<boolean>($=>{
 		el.addEventListener('mouseenter', ()=>{
-			$._ = true
+			$.set(true)
 		})
 		el.addEventListener('mouseleave', ()=>{
-			$._ = false
+			$.set(false)
 		})
 		return el.parentElement?.querySelector(':hover') === el
 	}))
@@ -131,7 +133,7 @@ export function hover__enter$__new(el:Element) {
 export function toggle_click__enter$__new(el:Element) {
 	return calling(memo_<boolean>($=>{
 		el.addEventListener('click', ()=>{
-			$._ = !$()
+			$.set(!$())
 		})
 		return false
 	}))
