@@ -35,7 +35,7 @@
 		"transition"
 	],
 	"dependencies": {
-		"ctx-core": "^6.8.3"
+		"ctx-core": "^7.0.0"
 	},
 	"devDependencies": {
 		"bun-types": "latest"
