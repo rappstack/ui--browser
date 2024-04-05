@@ -35,12 +35,12 @@
 		"transition"
 	],
 	"dependencies": {
-		"ctx-core": "^7.1.1"
+		"ctx-core": "^7.1.2"
 	},
 	"devDependencies": {
 		"bun-types": "latest"
 	},
 	"peerDependencies": {
-		"typescript": "^5.4.3"
+		"typescript": "^5.4.4"
 	}
 }
