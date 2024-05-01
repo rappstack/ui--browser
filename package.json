@@ -24,6 +24,8 @@
 	"exports": {
 		".": "./index.ts",
 		"./el": "./el/index.ts",
+		"./sticky": "./sticky/index.ts",
+		"./sticky/hyop": "./sticky/hyop/index.ts",
 		"./transition": "./transition/index.ts",
 		"./package.json": "./package.json"
 	},
@@ -32,6 +34,7 @@
 		"*.js",
 		"*.json",
 		"el",
+		"sticky",
 		"transition"
 	],
 	"dependencies": {
